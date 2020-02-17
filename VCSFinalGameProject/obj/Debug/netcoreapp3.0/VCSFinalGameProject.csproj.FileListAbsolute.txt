@@ -1,0 +1,11 @@
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\obj\Debug\netcoreapp3.0\VCSFinalGameProject.csprojAssemblyReference.cache
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\obj\Debug\netcoreapp3.0\VCSFinalGameProject.AssemblyInfoInputs.cache
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\obj\Debug\netcoreapp3.0\VCSFinalGameProject.AssemblyInfo.cs
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\bin\Debug\netcoreapp3.0\VCSFinalGameProject.exe
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\bin\Debug\netcoreapp3.0\VCSFinalGameProject.deps.json
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\bin\Debug\netcoreapp3.0\VCSFinalGameProject.runtimeconfig.json
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\bin\Debug\netcoreapp3.0\VCSFinalGameProject.runtimeconfig.dev.json
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\bin\Debug\netcoreapp3.0\VCSFinalGameProject.dll
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\bin\Debug\netcoreapp3.0\VCSFinalGameProject.pdb
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\obj\Debug\netcoreapp3.0\VCSFinalGameProject.dll
+C:\Users\metal\Documents\GitHub\VCSFinalGameProject\VCSFinalGameProject\obj\Debug\netcoreapp3.0\VCSFinalGameProject.pdb
