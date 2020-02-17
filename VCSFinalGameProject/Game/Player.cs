@@ -11,6 +11,7 @@ namespace VCSFinalGameProject.Game
         public Player(int x, int y, string name) : base(x, y, name)
         {
         }
+        
 
         public void MoveRight()
         {
@@ -25,8 +26,14 @@ namespace VCSFinalGameProject.Game
         public override void Render()
         {
             Console.SetCursorPosition(x, y);
-            //Console.WriteLine("render hero");
+            Console.Write("^");
 
+        }
+        public void Fire()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("|");
+            y++;
         }
 
     }

@@ -62,7 +62,7 @@ namespace VCSFinalGameProject.Game
 
         public void Render()
         {
-            _player.PrintInfo();
+            _player.Render();
             foreach (Enemy enemy in _enemies)
             {
                 enemy.PrintInfo();

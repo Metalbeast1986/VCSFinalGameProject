@@ -18,8 +18,9 @@ namespace VCSFinalGameProject
             Console.ReadKey();
             */
 
-            GameScreen myGame = new GameScreen(30, 20);
 
+            // moving with keys
+            GameScreen myGame = new GameScreen(30, 20);
             // fill game with game data.
             myGame.SetHero(new Player(5, 5, "HERO"));
             bool needToRender = true;
@@ -53,6 +54,7 @@ namespace VCSFinalGameProject
                 // padarom pause. (parodom ekrana).
                 System.Threading.Thread.Sleep(250);
             } while (needToRender);
+            // moving with keys end
         }
     }
 }
