@@ -38,6 +38,10 @@ namespace VCSFinalGameProject.GUI
 
             Console.Write(Label);
         }
+        internal void SetText(string lineText)
+        {
+            Label = lineText;
+        }
     }
 }
 

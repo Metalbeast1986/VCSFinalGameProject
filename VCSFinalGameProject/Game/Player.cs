@@ -22,19 +22,21 @@ namespace VCSFinalGameProject.Game
         {
             x--;
         }
-
-        public override void Render()
+        /*
+        public void Gunshot()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write("^");
-
-        }
-        public void Fire()
-        {
+            Console.Clear();
             Console.SetCursorPosition(x, y);
             Console.Write("|");
             y++;
+            
         }
-
+        */
+        public override void Render()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("=^=");
+           
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace VCSFinalGameProject.Game
 {
     class Enemy:Unit
     {
-        private int _id;
+        public int _id;
         public Enemy(int id, int x, int y, string name) : base( x,  y,  name)
         {
             this._id = id;  
@@ -18,6 +18,13 @@ namespace VCSFinalGameProject.Game
         {
             y++;
         }
+        /*public void Clear()
+        {
+            
+           Console.WriteLine("clear "+ _id);
+                //_enemies.RemoveAt(enemy._id);
+            
+        }*/
         public int GetId()
         {
             return _id;
@@ -25,7 +32,7 @@ namespace VCSFinalGameProject.Game
         public override void Render()
         {
             Console.SetCursorPosition(x, y);
-            //Console.WriteLine("render enemy");
+            Console.WriteLine("[=]");
         }
     }
 }

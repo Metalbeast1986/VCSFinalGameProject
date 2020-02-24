@@ -9,45 +9,51 @@ namespace VCSFinalGameProject.GUI
 {
     class GuiController
     {
+        public MenuWindow menuWindow;
         public GameWindow gameWindow;
+        public GamePlayWindow gamePlayWindow;
         private CreditWindow creditWindow;
+        public GameOverMenu gameOverMenu;
         bool needToRender = true;
         bool creditWindowRender = true;
+        bool needToRenderGameOverMenu = false;
         int index = 0;
         ConsoleKey key;
 
         public GuiController()
         {
-            gameWindow = new GameWindow();
+            menuWindow = new MenuWindow();
+            gamePlayWindow = new GamePlayWindow();
             creditWindow = new CreditWindow();
-
+            gameOverMenu = new GameOverMenu();
         }
         public void ShowMenu()
         {
+            //gameWindow.Render();
             if (needToRender)
             {
-                gameWindow.Render();
+                menuWindow.Render();
 
                 //call out Select function to display all possible buttons
-                Select(gameWindow.buttonList);
+                Select(menuWindow.buttonList);
             }
 
         }
         void Active(int index, List<Button> buttonList)
         {
 
-            gameWindow.buttonList[index].SetActive();
+            menuWindow.buttonList[index].SetActive();
 
             for (int i = 0; i < buttonList.Count; i++)
             {
                 if (i != index)
                 {
                     //deactivate all other buttons
-                    gameWindow.buttonList[i].SetInActive();
+                    menuWindow.buttonList[i].SetInActive();
                 }
             }
 
-            gameWindow.Render();
+            menuWindow.Render();
             if (key == ConsoleKey.Enter)
             {
                 checkIndexValue(index);
@@ -95,10 +101,12 @@ namespace VCSFinalGameProject.GUI
             {
                 //start game
                 Console.Clear();
-
+                gameWindow = new GameWindow();
+                gameWindow.Render();
                 GameController myGame = new GameController();
                 myGame.StartGame();
                 needToRender = false;
+                //gamePlayWindow.Render();
             }
             else if (index == 1)
             {
@@ -115,6 +123,46 @@ namespace VCSFinalGameProject.GUI
             {
                 //how to exit application
                 System.Environment.Exit(0);
+            }
+
+        }
+        public void ShowGameOverMenu(int score)
+        {
+            needToRenderGameOverMenu = true;
+            if (needToRenderGameOverMenu)
+            {
+                gameOverMenu.SetWinner(score);
+                gameOverMenu.Render();
+                key = Console.ReadKey(true).Key;
+                do
+                {
+                    key = Console.ReadKey(true).Key;
+                    switch (key)
+                    {
+                        case ConsoleKey.R:
+                            {
+                                Console.Clear();
+                                GameController myGame = new GameController();
+                                myGame.StartGame();
+                                needToRender = false;
+                                break;
+                            }
+
+                        case ConsoleKey.M:
+                            {
+                                ShowMenu();
+                                needToRender = true;
+                                needToRenderGameOverMenu = false;
+                                break;
+                            }
+                        case ConsoleKey.Q:
+                            {
+                                System.Environment.Exit(0);
+                                break;
+                            }
+                    }
+
+                } while (needToRender);
             }
 
         }

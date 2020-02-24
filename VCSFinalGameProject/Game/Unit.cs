@@ -6,8 +6,8 @@ namespace VCSFinalGameProject.Game
 {
     abstract class Unit
     {
-        protected int x { get; set; }
-        protected int y { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
         protected string name;
 
         public Unit(int x, int y, string name)
