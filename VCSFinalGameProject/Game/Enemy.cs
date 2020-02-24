@@ -32,7 +32,7 @@ namespace VCSFinalGameProject.Game
         public override void Render()
         {
             Console.SetCursorPosition(x, y);
-            Console.WriteLine("[=]");
+            Console.WriteLine("<=>");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace VCSFinalGameProject.Game
         public void InitGame()
         {
             // myGame = new GameScreen(30, 20);
-            myGame = new GameScreen(0, 0, 120, 30, '+');
+            myGame = new GameScreen(0, 0, 60, 30, '+');
 
             // fill game with game data.
             /*
@@ -59,7 +59,7 @@ namespace VCSFinalGameProject.Game
             int gameTime = 250;
             for (int i = 0; i < enemyCountInWave; i++)
             {
-                Enemy enemy_enemyCount = new Enemy(enemyCount, rnd.Next(0, 40), rnd.Next(0, 10), "enemy" + enemyCount);
+                Enemy enemy_enemyCount = new Enemy(enemyCount, rnd.Next(1, 59), rnd.Next(0, 10), "enemy" + enemyCount);
                 myGame.AddEnemy(enemy_enemyCount);
                 enemyCount++;
             }
@@ -115,11 +115,11 @@ namespace VCSFinalGameProject.Game
                  */
 
                 //Refilling game with enemies
-                if (myGame.EnemyCount() < enemyCountInWave || myGame.LastEnemyPos() < 5)
+                if (myGame.EnemyCount() < enemyCountInWave || myGame.LastEnemyPos() > 5)
                 {
                     for (int i = 0; i < enemyCountInWave; i++)
                     {
-                        Enemy enemy_enemyCount = new Enemy(enemyCount, rnd.Next(0, 40), rnd.Next(0, 5), "enemy" + enemyCount);
+                        Enemy enemy_enemyCount = new Enemy(enemyCount, rnd.Next(0, 59), rnd.Next(0, 5), "enemy" + enemyCount);
                         myGame.AddEnemy(enemy_enemyCount);
                         enemyCount++;
                     }

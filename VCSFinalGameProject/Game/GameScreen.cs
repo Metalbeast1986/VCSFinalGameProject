@@ -39,12 +39,18 @@ namespace VCSFinalGameProject.Game
 
         public void MoveHeroLeft()
         {
-            _player.MoveLeft();
+            if (_player.x > 0)
+            {
+                _player.MoveLeft();
+            }
         }
 
         public void MoveHeroRight()
         {
-            _player.MoveRight();
+            if (_player.x < _width-1)
+            {
+                _player.MoveRight();
+            }
         }
 
         public void Fire()
@@ -52,7 +58,7 @@ namespace VCSFinalGameProject.Game
             bool bulletFlying = true;
             do
             {
-                if (_gunfire.y > 0)
+                if (_gunfire.y > 1)
                 {
                     _gunfire.Gunshot();
                 }
@@ -94,14 +100,24 @@ namespace VCSFinalGameProject.Game
             foreach (Enemy enemy in _enemies.Reverse<Enemy>())
             {
                 //if (enemy.y == gunshot.y && enemy.x == gunshot.x)
+                /*
                 if (enemy.x == gunshot.x || enemy.x-1 == gunshot.x || enemy.x+1 == gunshot.x)
                 {
                     _enemies.Remove(enemy);
                     score++;
+                }
+                */
+                if (enemy.x+1 == gunshot.x)
+                {
+                    _enemies.Remove(enemy);
+                    gunshot.y = enemy.y;
+                    Console.SetCursorPosition(enemy.x, enemy.y);
+                    Console.Write("###");
 
+                    score++;
                 }
             }
-            Console.WriteLine(gunshot.y);
+            //Console.WriteLine(gunshot.y);
         }
         
 
@@ -136,17 +152,27 @@ namespace VCSFinalGameProject.Game
                 enemy.Render();
             }
 
-            Console.SetCursorPosition(70,3);
+            Console.SetCursorPosition(70, 3);
             Console.WriteLine("Score: " + score);
-            Console.SetCursorPosition(70, 4);
+            Console.SetCursorPosition(80, 4);
             Console.WriteLine("Player Health: "+ playerHealth);
             
             for (int i=0; i<=playerHealth; i++)
             {
-                Console.SetCursorPosition(70+i, 5);
+                Console.SetCursorPosition(70+ i, 5);
                 Console.Write("I");
             }
             Console.SetCursorPosition(70, 6);
+
+            //draw frame
+            for ( int i=0; i<_height; i++)
+            {
+                Console.SetCursorPosition(_width, i);
+                Console.Write("[");
+                Console.SetCursorPosition(0, i);
+                Console.Write("]");
+            }    
+           
         }
         public void ShowGameTime(int gameTime)
         {
@@ -170,6 +196,8 @@ namespace VCSFinalGameProject.Game
                 if ((enemy.x == _player.x || enemy.x - 1 == _player.x || enemy.x + 1 == _player.x) && enemy.y == _player.y)
                 {
                     _enemies.Remove(enemy);
+                    Console.SetCursorPosition(_player.x, _player.y);
+                    Console.Write("*#*");
                     score--;
                     playerHealth--;
 
