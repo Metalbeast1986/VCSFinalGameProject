@@ -147,7 +147,11 @@ namespace VCSFinalGameProject.Game
                 Console.Write("I");
             }
             Console.SetCursorPosition(70, 6);
-            Console.WriteLine();
+        }
+        public void ShowGameTime(int gameTime)
+        {
+            Console.SetCursorPosition(70, 7);
+            Console.WriteLine("Time: "+ gameTime);
         }
         public int EnemyCount()
         {

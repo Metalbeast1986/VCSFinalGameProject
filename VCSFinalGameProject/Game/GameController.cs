@@ -56,6 +56,7 @@ namespace VCSFinalGameProject.Game
             Random rnd = new Random();
             int enemyCount = 0;
             int enemyCountInWave = 20;
+            int gameTime = 250;
             for (int i = 0; i < enemyCountInWave; i++)
             {
                 Enemy enemy_enemyCount = new Enemy(enemyCount, rnd.Next(0, 40), rnd.Next(0, 10), "enemy" + enemyCount);
@@ -109,10 +110,8 @@ namespace VCSFinalGameProject.Game
 
                 //time tick check:
                 /*
-                check enemy number
                 hitcheck
                 check bullet time
-
                  */
 
                 //Refilling game with enemies
@@ -128,7 +127,11 @@ namespace VCSFinalGameProject.Game
 
                 //collision check
                 myGame.CollisionCheck();
-                if (myGame.playerHealth < 0)
+                myGame.ShowGameTime(gameTime);
+
+                gameTime--;
+
+                if (myGame.playerHealth <= 0 || gameTime <= 0)
                 {
                     GameOver();
                     needToRender = false;
@@ -140,16 +143,12 @@ namespace VCSFinalGameProject.Game
         {
             Console.Clear();
             guiController = new GuiController();
+            /*
             Console.WriteLine("Game over pal!");
             Console.WriteLine("Score: " + myGame.score);
-
+            */
             guiController.ShowGameOverMenu(myGame.score);
-            //GameOverMenu
-            /*
-             *
-             
-             */
-
+           
         }
     }
 }
