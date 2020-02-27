@@ -115,7 +115,6 @@ namespace VCSFinalGameProject.Game
                 //collision check
                 myGame.CollisionCheck();
                 myGame.ShowGameTime(gameTime);
-
                 gameTime--;
 
               
@@ -129,8 +128,6 @@ namespace VCSFinalGameProject.Game
 
                     needToRender = false;
                 }
-
-
 
                 System.Threading.Thread.Sleep(250);
             } while (needToRender);

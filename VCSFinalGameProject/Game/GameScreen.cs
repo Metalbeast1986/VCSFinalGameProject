@@ -108,7 +108,7 @@ namespace VCSFinalGameProject.Game
 
         public void HitCheck(GunFire gunshot)
         {
-            // trinam enemius uzkritusius uz ekrano
+            // trinam nukautus enemius
             foreach (Enemy enemy in _enemies.Reverse<Enemy>())
             {
                
@@ -123,7 +123,6 @@ namespace VCSFinalGameProject.Game
                 }
             }
             gunshot.Render();
-            //Console.WriteLine(gunshot.y);
         }
         
 
