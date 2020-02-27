@@ -13,7 +13,7 @@ namespace VCSFinalGameProject.GUI
 
         public GamePlayWindow() : base(0, 0, 120, 30, '+')
         {
-            _titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Final Project", "Vardas Pavardaitis kuryba!", "Made in Vilnius Coding School!" });
+            _titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Final Project", "Ksistof Jusel kuryba!", "Made in Vilnius Coding School!" });
             _score = new Button(80, 13, 18, 5, "Score: ");
             buttonList.Add(_score);
         }

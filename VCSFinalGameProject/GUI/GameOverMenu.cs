@@ -9,12 +9,14 @@ namespace VCSFinalGameProject.GUI
         private MenuLabel _replayGameText;
         private MenuLabel _menuText;
         private MenuLabel _quitText;
+        private TextBlock _resultsTextBlock;
         private TextBlock _titleTextBlock;
         public List<MenuLabel> LabelList = new List<MenuLabel>();
 
         public GameOverMenu() : base(0, 0, 120, 30, '%')
         {
-            _titleTextBlock = new TextBlock(10, 5, 100, new List<String> { $"The Winner is " });
+            _resultsTextBlock = new TextBlock(10, 5, 100, new List<String> { $"The Winner is " });
+            _titleTextBlock = new TextBlock(10, 8, 100, new List<String> { $"The Winner is " });
 
             _replayGameText = new MenuLabel(20, 13, 18, 5, "R - Replay Game");
             _menuText = new MenuLabel(50, 13, 18, 5, "M - Menu");
@@ -25,19 +27,31 @@ namespace VCSFinalGameProject.GUI
             LabelList.Add(_quitText);
 
         }
-        
-        public void SetWinner(int score)
+
+        public void SetScore(int score)
         {
-            _titleTextBlock.SetLine(0, $"Score: {score} !");
+            _titleTextBlock.SetLine(0, $"Score: {score}");
         }
-        
+        public void SetWinner(bool winLose)
+        {
+            string resultText = "";
+            if (winLose)
+            {
+                resultText = "You have survived! :)";
+            }
+            else
+                resultText = "You have been defeated!:(";
+
+            _resultsTextBlock.SetLine(0, resultText);
+        }
+
 
         public override void Render()
         {
             base.Render();
 
+            _resultsTextBlock.Render();
             _titleTextBlock.Render();
-
             _replayGameText.Render();
             _menuText.Render();
             _quitText.Render();

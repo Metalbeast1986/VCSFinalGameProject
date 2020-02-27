@@ -51,7 +51,9 @@ namespace VCSFinalGameProject.Game
         {
             Player player = new Player(10, 20, "Player");
             myGame.SetHero(player);
+           
             bool needToRender = true;
+            bool WinLose = false;
 
             Random rnd = new Random();
             int enemyCount = 0;
@@ -93,26 +95,11 @@ namespace VCSFinalGameProject.Game
                             myGame.Fire();
                             myGame.HitCheck(shot);
 
-                            //funkcija kuri tikrina pataikyma
-                            //uzblokuoti saudyma kol suvis neisnyksta
                             break;
                     }
                 }
 
                 myGame.Render();
-                //Console.WriteLine(myGame.score);
-                // padarom pause. (parodom ekrana).
-
-                // if (wave <= 0)
-                //     needToRender = false;
-                //Console.WriteLine(myGame.score);
-                // padarom pause. (parodom ekrana).
-
-                //time tick check:
-                /*
-                hitcheck
-                check bullet time
-                 */
 
                 //Refilling game with enemies
                 if (myGame.EnemyCount() < enemyCountInWave || myGame.LastEnemyPos() > 5)
@@ -131,24 +118,31 @@ namespace VCSFinalGameProject.Game
 
                 gameTime--;
 
+              
                 if (myGame.playerHealth <= 0 || gameTime <= 0)
                 {
-                    GameOver();
+                    if (myGame.playerHealth <= 0 && gameTime > 0)
+                        WinLose = false;
+                    else if (gameTime <= 0 && myGame.playerHealth > 0)
+                        WinLose = true;
+                        GameOver(WinLose);
+
                     needToRender = false;
                 }
+
+
+
                 System.Threading.Thread.Sleep(250);
             } while (needToRender);
         }
-        public void GameOver()
+        public void GameOver(bool WinLose)
         {
             Console.Clear();
+
             guiController = new GuiController();
-            /*
-            Console.WriteLine("Game over pal!");
-            Console.WriteLine("Score: " + myGame.score);
-            */
-            guiController.ShowGameOverMenu(myGame.score);
+            guiController.ShowGameOverMenu(WinLose, myGame.score);
            
         }
+        
     }
 }

@@ -17,6 +17,7 @@ namespace VCSFinalGameProject.Game
         public int score = 0;
         public int playerHealth = 10;
         public bool isPaused = false;
+        public bool collision = false;
         //internal int enemyWaveCount;
 
         public GameScreen(int x, int y, int width, int height, char borderChar)
@@ -43,18 +44,30 @@ namespace VCSFinalGameProject.Game
             {
                 _player.MoveLeft();
             }
+            else
+            {
+                Collision();
+                _player.x = 1;
+            }
         }
 
         public void MoveHeroRight()
         {
-            if (_player.x < _width-1)
+            if (_player.x < _width - 2)
             {
                 _player.MoveRight();
             }
+            else
+            {
+                Collision();
+                _player.x = _width - 3;
+            }
+
         }
 
         public void Fire()
         {
+            
             bool bulletFlying = true;
             do
             {
@@ -96,27 +109,20 @@ namespace VCSFinalGameProject.Game
         public void HitCheck(GunFire gunshot)
         {
             // trinam enemius uzkritusius uz ekrano
-            
             foreach (Enemy enemy in _enemies.Reverse<Enemy>())
             {
-                //if (enemy.y == gunshot.y && enemy.x == gunshot.x)
-                /*
-                if (enemy.x == gunshot.x || enemy.x-1 == gunshot.x || enemy.x+1 == gunshot.x)
-                {
-                    _enemies.Remove(enemy);
-                    score++;
-                }
-                */
+               
                 if (enemy.x+1 == gunshot.x)
                 {
                     _enemies.Remove(enemy);
                     gunshot.y = enemy.y;
                     Console.SetCursorPosition(enemy.x, enemy.y);
                     Console.Write("###");
-
+                   
                     score++;
                 }
             }
+            gunshot.Render();
             //Console.WriteLine(gunshot.y);
         }
         
@@ -157,7 +163,7 @@ namespace VCSFinalGameProject.Game
             Console.SetCursorPosition(80, 4);
             Console.WriteLine("Player Health: "+ playerHealth);
             
-            for (int i=0; i<=playerHealth; i++)
+            for (int i=0; i<playerHealth; i++)
             {
                 Console.SetCursorPosition(70+ i, 5);
                 Console.Write("I");
@@ -192,20 +198,19 @@ namespace VCSFinalGameProject.Game
         {
             foreach (Enemy enemy in _enemies.Reverse<Enemy>())
             {
-                //if (enemy.y == gunshot.y && enemy.x == gunshot.x)
                 if ((enemy.x == _player.x || enemy.x - 1 == _player.x || enemy.x + 1 == _player.x) && enemy.y == _player.y)
                 {
-                    _enemies.Remove(enemy);
-                    Console.SetCursorPosition(_player.x, _player.y);
-                    Console.Write("*#*");
-                    score--;
-                    playerHealth--;
-
+                    Collision();
                 }
             }
         }
-
-
+        public void Collision()
+        {
+            Console.SetCursorPosition(_player.x, _player.y);
+            Console.Write("**#**");
+            score--;
+            playerHealth--;
+        }
     }
 }
 

@@ -12,7 +12,6 @@ namespace VCSFinalGameProject.Game
         {
         }
         
-
         public void MoveRight()
         {
             x++;
@@ -22,16 +21,7 @@ namespace VCSFinalGameProject.Game
         {
             x--;
         }
-        /*
-        public void Gunshot()
-        {
-            Console.Clear();
-            Console.SetCursorPosition(x, y);
-            Console.Write("|");
-            y++;
-            
-        }
-        */
+
         public override void Render()
         {
             Console.SetCursorPosition(x, y);

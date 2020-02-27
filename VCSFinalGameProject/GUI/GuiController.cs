@@ -41,7 +41,6 @@ namespace VCSFinalGameProject.GUI
         }
         void Active(int index, List<Button> buttonList)
         {
-
             menuWindow.buttonList[index].SetActive();
 
             for (int i = 0; i < buttonList.Count; i++)
@@ -126,12 +125,13 @@ namespace VCSFinalGameProject.GUI
             }
 
         }
-        public void ShowGameOverMenu(int score)
+        public void ShowGameOverMenu(bool WinLose, int score)
         {
             needToRenderGameOverMenu = true;
             if (needToRenderGameOverMenu)
             {
-                gameOverMenu.SetWinner(score);
+                gameOverMenu.SetWinner(WinLose);
+                gameOverMenu.SetScore(score);
                 gameOverMenu.Render();
                 key = Console.ReadKey(true).Key;
                 do

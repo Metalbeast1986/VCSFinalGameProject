@@ -37,7 +37,5 @@ namespace VCSFinalGameProject.GUI
             _notActiveFrame.Render();
             _textLine.Render();
         }
-
-
     }
 }

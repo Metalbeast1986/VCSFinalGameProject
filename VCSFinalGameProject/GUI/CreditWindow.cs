@@ -19,13 +19,13 @@ namespace VCSFinalGameProject.GUI
             creditData.Add("Ksistof Jusel");
             creditData.Add("");
             creditData.Add("Programuotojas:");
-            creditData.Add("Vardas Vardaitis");
+            creditData.Add("Ksistof Jusel");
             creditData.Add("");
             creditData.Add("\'Art\':");
-            creditData.Add("Vardas Vardaitis");
+            creditData.Add("Ksistof Jusel");
             creditData.Add("");
-            creditData.Add("Marketingas:");
-            creditData.Add("Vardas Vardaitis");
+            creditData.Add("Marketing:");
+            creditData.Add("Ksistof Jusel");
             creditData.Add("");
 
             _creditTextBlock = new TextBlock(28 + 1, 10 + 1, 60 - 1, creditData);
