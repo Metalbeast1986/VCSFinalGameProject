@@ -14,8 +14,6 @@ namespace VCSFinalGameProject.Game
         public GuiController guiController;
         public void StartGame()
         {
-            //Window thisGameWindow = new Window(0, 0, 120, 30, '+');
-            
             // init game
             InitGame();
 
@@ -27,23 +25,6 @@ namespace VCSFinalGameProject.Game
         {
             // myGame = new GameScreen(30, 20);
             myGame = new GameScreen(0, 0, 60, 30, '+');
-
-            // fill game with game data.
-            /*
-            Player player = new Player(10, 20, "Player");
-            myGame.SetHero(player);
-            */
-            /*
-            Random rnd = new Random();
-            int enemyCount = 0;
-            int enemyCountInWave = 20;
-            for (int i = 0; i < enemyCountInWave; i++)
-            {
-                Enemy enemy_enemyCount = new Enemy(enemyCount, rnd.Next(0, 40), rnd.Next(0, 10), "enemy" + enemyCount);
-                myGame.AddEnemy(enemy_enemyCount);
-                enemyCount++;
-            }
-            */
         }
 
 
@@ -98,7 +79,7 @@ namespace VCSFinalGameProject.Game
                             break;
                     }
                 }
-
+                
                 myGame.Render();
 
                 //Refilling game with enemies

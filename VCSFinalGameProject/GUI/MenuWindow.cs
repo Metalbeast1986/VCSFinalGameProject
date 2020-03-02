@@ -15,7 +15,7 @@ namespace VCSFinalGameProject.GUI
         public MenuWindow() : base(0, 0, 120, 30, '+')
         {
             
-            _titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Final Project", "Vardas Pavardaitis kuryba!", "Made in Vilnius Coding School!" });
+            _titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Final Project", "Kšištof Jusel kuryba!", "Made in Vilnius Coding School!" });
 
             _startButton = new Button(20, 13, 18, 5, "Start");
             _startButton.SetActive();

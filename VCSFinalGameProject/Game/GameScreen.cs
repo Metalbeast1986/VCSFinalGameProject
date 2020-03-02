@@ -46,7 +46,7 @@ namespace VCSFinalGameProject.Game
             }
             else
             {
-                Collision();
+                //Collision();
                 _player.x = 1;
             }
         }
@@ -59,7 +59,7 @@ namespace VCSFinalGameProject.Game
             }
             else
             {
-                Collision();
+                //Collision();
                 _player.x = _width - 3;
             }
 
@@ -159,12 +159,12 @@ namespace VCSFinalGameProject.Game
 
             Console.SetCursorPosition(70, 3);
             Console.WriteLine("Score: " + score);
-            Console.SetCursorPosition(80, 4);
+            Console.SetCursorPosition(70, 4);
             Console.WriteLine("Player Health: "+ playerHealth);
             
             for (int i=0; i<playerHealth; i++)
             {
-                Console.SetCursorPosition(70+ i, 5);
+                Console.SetCursorPosition(70+i, 5);
                 Console.Write("I");
             }
             Console.SetCursorPosition(70, 6);
